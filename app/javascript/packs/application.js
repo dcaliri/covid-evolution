@@ -11,6 +11,7 @@ require("chartkick")
 require("chart.js")
 
 import '../stylesheets/application'
+import './bootstrap_custom.js'
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
