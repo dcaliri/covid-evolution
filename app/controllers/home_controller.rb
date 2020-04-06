@@ -8,6 +8,7 @@ class HomeController < ApplicationController
 
   def json_series
     @json = @json.select{|x| params[:countries].split(',').include?(x)} if params[:countries].present?
+    @json = @json.map{|k,v| [k, @json[k].select{ |x| x if x['date'].to_date >= params[:since].to_date }]}.to_h if params[:since].present?
     @countries = @json.map{|x| [ x[0], x[1].map{|y| [ y['date'], y['confirmed'] ] }.to_h ] }
     json = @countries.map{|x| { name: x[0], data: x[1] } }
     render json: json

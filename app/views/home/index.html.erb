@@ -1,5 +1,2 @@
 <h2>COVID-19</h2>
-
-<%= line_chart json_series_path(countries: params[:countries]), width: "1200px", height: "800px" %>
-
-<%= @countries %>
+<%= line_chart json_series_path(countries: params[:countries], since: params[:since]), width: "1200px", height: "650px" %>
