@@ -10,16 +10,15 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
+  adapter: sqlite3
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: covid_evolution_development
+  username: root
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -50,5 +49,5 @@ test:
 production:
   <<: *default
   database: covid_evolution_production
-  username: covid_evolution
-  password: <%= ENV['COVID_EVOLUTION_DATABASE_PASSWORD'] %>
+  username: deploy
+  password:
